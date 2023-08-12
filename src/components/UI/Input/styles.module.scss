@@ -1,0 +1,39 @@
+@import "globalStyles/vars";
+
+.container {
+   font-size: 18px;
+
+   @media (max-width: $media7 + px) {
+      font-size: 14px;
+   }
+}
+
+.input {
+   width: 250px;
+   height: 40px;
+   padding: 10px 15px;
+
+   background: #363c46;
+   border-radius: 8px;
+   border: #363c46;
+
+   color: #61dafb;
+   font-family: Roboto;
+
+   &:focus-visible {
+      outline: #61dafb solid 1px;
+   }
+
+   &::placeholder {
+      color: #1b5c6e;
+   }
+}
+
+label {
+   font-family: Roboto;
+   display: block;
+   padding: 0 5px;
+   margin-bottom: 10px;
+   color: #398195;
+   line-height: 1;
+}

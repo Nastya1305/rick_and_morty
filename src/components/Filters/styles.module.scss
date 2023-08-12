@@ -1,0 +1,12 @@
+@import "globalStyles/vars";
+
+.container {
+    margin: 20px 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    @media (max-width: $media6 + px) {
+        gap: 20px;
+    }
+}

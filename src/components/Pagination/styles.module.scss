@@ -1,0 +1,62 @@
+@import "globalStyles/vars";
+
+.container {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 5px;
+}
+
+.btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   width: 35px;
+   height: 35px;
+   border-radius: 8px;
+   background-color: #363c46;
+
+   cursor: pointer;
+
+   font-family: Roboto;
+   font-weight: 500;
+   font-size: 14px;
+   line-height: 130%;
+   color: #61dafb;
+
+   &:hover {
+      background-color: #398195;
+   }
+
+   &:global(.selected) {
+      background-color: #398195;
+      color: #20232a;
+   }
+}
+
+.arrow {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   width: 35px;
+   height: 35px;
+
+   cursor: pointer;
+   fill: #398195;
+
+   &:hover {
+      fill: #61dafb;
+   }
+
+   &:global(.prev) {
+      margin-right: 20px;
+      transform: scale(-1, 1);
+   }
+
+   &:global(.next) {
+      margin-left: 20px;
+   }
+}

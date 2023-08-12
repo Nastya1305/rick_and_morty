@@ -1,0 +1,21 @@
+.logoImg {
+    overflow: hidden;
+    img {
+        width: 60vw;
+        max-height: 250px;
+
+        object-fit: contain;
+        object-position: center;
+        margin: 0 auto;
+    }
+}
+
+.container {
+    width: 100vw;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.cards {
+    margin-bottom: 30px;
+}

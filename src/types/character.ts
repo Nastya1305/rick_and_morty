@@ -1,10 +1,14 @@
+
+export type Status = 'Alive' | 'Dead' | 'unknown';
+export type Gender = 'Female' | 'Male' | 'Genderless' | 'unknown';
+
 export interface ICharacter {
    id: number,
    name: string,
-   status: 'Alive' | 'Dead' | 'unknown',
+   status: Status,
    species: string,
    type: string,
-   gender: 'Female' | 'Male' | 'Genderless' | 'unknown',
+   gender: Gender,
    origin: string,
    location: string,
    image: string,

@@ -1,0 +1,46 @@
+@import "globalStyles/vars";
+
+.container {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 0 -20px;
+}
+
+.column {
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+   flex: 0 1 20%;
+   padding: 20px;
+
+   @media (max-width: $media2 + px) {
+      flex: 0 1 25%;
+   }
+
+   @media (max-width: $media3 + px) {
+      flex: 0 1 33.333%;
+   }
+
+   @media (max-width: $media5 + px) {
+      padding: 10px;
+   }
+
+   @media (max-width: $media7 + px) {
+      flex: 0 1 50%;
+      padding: 7px;
+   }
+}
+
+.message {
+   margin: 0 auto;
+   color: #61dafb;
+   font-family: Roboto;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+
+   @media (max-width: $media5 + px) {
+      font-size: 18px;
+   }
+}
