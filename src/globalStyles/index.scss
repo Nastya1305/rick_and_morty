@@ -5,6 +5,10 @@ body {
    background-color: #20232a;
 }
 
+body.lock {
+   overflow: hidden;
+}
+
 .wrapper {
    width: 100%;
    min-height: 100vh;

@@ -1,19 +1,20 @@
 @import "globalStyles/vars";
 
 .container {
-   // width: 280px;
    width: 100%;
    height: 100%;
    border-radius: 8px;
    background: #363c46;
    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
    overflow: hidden;
+
+   cursor: pointer;
+   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .img {
    overflow: hidden;
    img {
-      // height: 234px;
       height: 100%;
       width: 100%;
       object-fit: cover;

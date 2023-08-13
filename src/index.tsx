@@ -13,6 +13,7 @@ root.render(
     <Provider store={store}>
       <App />
     </Provider>
+    <div id='modal-container'></div>
   </React.StrictMode>
 );
 
