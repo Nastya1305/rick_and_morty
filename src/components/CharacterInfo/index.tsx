@@ -18,7 +18,6 @@ const CharacterInfo: FC<CharacterInfoProps> = ({ character }) => {
 
 
    return (
-
       <div className={styles.container}>
          <div className={styles.img}>
             <img src={character.image} alt={character.name} />

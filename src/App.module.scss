@@ -1,6 +1,13 @@
 @import "globalStyles/vars";
 
+.container {
+    width: 100vw;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
 .logoImg {
+    margin-bottom: 20px;
     overflow: hidden;
     img {
         width: 60vw;
@@ -12,10 +19,8 @@
     }
 }
 
-.container {
-    width: 100vw;
-    padding-top: 30px;
-    padding-bottom: 50px;
+.filters {
+    margin-bottom: 40px;
 }
 
 .cards {

@@ -4,14 +4,13 @@ import classNames from 'classnames';
 
 
 interface SelectProps {
-   className?: string,
    placeholder?: string,
    label?: string,
    valueList: string[],
    onChange: (newValue: string) => void
 }
 
-const Select: FC<SelectProps> = ({ placeholder, valueList, label, onChange, className }) => {
+const Select: FC<SelectProps> = ({ placeholder, valueList, label, onChange }) => {
    const [isOpen, setIsOpen] = useState<boolean>(false);
    const [curValue, setCurValue] = useState<string>(placeholder || valueList[0] || '')
    const select = useRef<HTMLDivElement>(null);
@@ -49,7 +48,7 @@ const Select: FC<SelectProps> = ({ placeholder, valueList, label, onChange, clas
                   valueList.map(value =>
                      <li
                         key={value}
-                        className={classNames(styles.option, className, { 'selected': value == curValue })}
+                        className={classNames(styles.option, { 'selected': value == curValue })}
                         onClick={() => { setIsOpen(false); setCurValue(value); onChange(value) }}
                      >
                         {value}

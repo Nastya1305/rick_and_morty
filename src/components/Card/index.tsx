@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import { ICharacter } from 'types/character';
-import classNames from 'classnames';
 import CharacterInfo from 'components/CharacterInfo';
 import Modal from 'components/UI/Modal';
 

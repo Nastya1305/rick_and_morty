@@ -1,10 +1,7 @@
 @import "globalStyles/vars";
 
 .container {
-   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
    position: relative;
-   cursor: pointer;
-
    width: 200px;
 
    font-family: Roboto;
@@ -16,34 +13,9 @@
    @media (max-width: $media7 + px) {
       font-size: 14px;
    }
-}
 
-.option {
-   padding: 4px 12px;
-   color: #20232a;
-   &:not(:first-child) {
-      border-top: solid 0.2px #363c46;
-   }
-
-   &:hover {
-      background-color: rgba(114, 226, 241, 0.2);
-   }
-
-   @media (max-width: $media4 + px) {
-      padding: 7px 12px;
-   }
-}
-
-.popup {
-   position: absolute;
-   top: 120%;
-   z-index: 1;
-   width: 100%;
-   overflow: hidden;
-
-   background-color: #286e82;
-   border: solid 0.5px #363c46;
-   border-radius: 10px;
+   cursor: pointer;
+   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .header {
@@ -59,8 +31,37 @@
 
    display: flex;
    justify-content: space-between;
+
+   .arrow {
+      font-size: 10px;
+   }
 }
 
-.arrow {
-   font-size: 10px;
+.popup {
+   position: absolute;
+   top: 120%;
+   z-index: 1;
+   width: 100%;
+   overflow: hidden;
+
+   background-color: #286e82;
+   border: solid 0.5px #363c46;
+   border-radius: 10px;
+}
+
+.option {
+   padding: 4px 12px;
+   color: #20232a;
+
+   &:not(:first-child) {
+      border-top: solid 0.2px #363c46;
+   }
+
+   &:hover {
+      background-color: rgba(114, 226, 241, 0.2);
+   }
+
+   @media (max-width: $media4 + px) {
+      padding: 7px 12px;
+   }
 }

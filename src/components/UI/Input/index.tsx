@@ -1,16 +1,13 @@
-import { FC, useState, ReactElement, SVGProps } from 'react';
+import { FC, useState } from 'react';
 import styles from './styles.module.scss';
-import classNames from 'classnames';
-
 
 interface InputProps {
-   className?: string,
    placeholder?: string,
    label?: string,
    onInput: (inputValue: string) => void,
 }
 
-const Input: FC<InputProps> = ({ className, placeholder, onInput, label }) => {
+const Input: FC<InputProps> = ({ placeholder, onInput, label }) => {
    const [inputValue, setInputValue] = useState<string>("");
    return (
       <div className={styles.container}>
@@ -22,7 +19,6 @@ const Input: FC<InputProps> = ({ className, placeholder, onInput, label }) => {
             onChange={(e) => { setInputValue(e.target.value); onInput(e.target.value) }}
          />
       </div>
-
    );
 }
 

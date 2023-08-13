@@ -18,7 +18,6 @@ const CardList: FC<CardListProps> = ({ characters, className }) => {
                <div className={styles.column} key={character.id}>
                   <Card character={character} />
                </div>
-
             )
          }
       </div>

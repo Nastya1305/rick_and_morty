@@ -16,9 +16,12 @@ function App() {
   const [curPage, setCurPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
   const [error, setError] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const apiUrl = useRef<URL>(new URL(`https://rickandmortyapi.com/api/character/`));
 
   async function getCharacters(apiUrl: URL) {
+    setLoading(true);
+
     fetch(apiUrl)
       .then(res => res.json())
       .then(result => {
@@ -28,6 +31,7 @@ function App() {
           setPageCount(result.info.pages);
           setCharacters(result.results);
           setError('');
+          setLoading(false);
         }
       });
     window.scrollTo(0, 0)
@@ -58,22 +62,22 @@ function App() {
       <div className={styles.logoImg}>
         <img src={require("assets/logo.png")} alt="" />
       </div>
-      <Filters />
+      <Filters className={styles.filters} />
       {
-        !error ?
-          <>
-            <CardList characters={characters} className={styles.cards} />
-            {
-              pageCount > 1 &&
-              <Pagination
-                curPage={curPage}
-                pageCount={pageCount}
-                pageCountDisplayed={5}
-                onPageChange={(number) => setCurPage(number)}
-              />
-            }
-          </>
-          : <div className={styles.message}>{error}</div>
+        error ? <div className={styles.message}>{error}</div> :
+          loading ? <div className={styles.message}>loading...</div> :
+            <>
+              <CardList characters={characters} className={styles.cards} />
+              {
+                pageCount > 1 &&
+                <Pagination
+                  curPage={curPage}
+                  pageCount={pageCount}
+                  pageCountDisplayed={5}
+                  onPageChange={(number) => setCurPage(number)}
+                />
+              }
+            </>
       }
 
     </div>
