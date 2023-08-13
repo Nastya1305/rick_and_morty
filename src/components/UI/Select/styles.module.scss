@@ -28,6 +28,10 @@
    &:hover {
       background-color: rgba(114, 226, 241, 0.2);
    }
+
+   @media (max-width: $media4 + px) {
+      padding: 7px 12px;
+   }
 }
 
 .popup {

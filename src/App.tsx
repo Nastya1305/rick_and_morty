@@ -30,6 +30,7 @@ function App() {
           setError('');
         }
       });
+    window.scrollTo(0, 0)
   }
 
 
