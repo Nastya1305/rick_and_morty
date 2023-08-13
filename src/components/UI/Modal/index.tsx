@@ -18,9 +18,9 @@ const Modal: FC<ModalProps> = ({ children, setActive }) => {
       document.getElementById('modal-container') as Element, []);
 
    return createPortal(
-      <div className={styles.modalContainer} style={{ top: window.pageYOffset + 'px' }} onClick={() => setActive(false)}>
-         <div className={styles.container} onClick={e => e.stopPropagation()}>
-            <button className={styles.closeBtn} onClick={() => setActive(false)} />
+      <div className={styles.modalContainer} style={{ top: window.pageYOffset + 'px' }} onClick={(e) => setActive(false)}>
+         <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeBtn} onClick={(e) => setActive(false)} />
             {children}
          </div>
       </div>,

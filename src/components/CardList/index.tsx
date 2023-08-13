@@ -14,15 +14,12 @@ const CardList: FC<CardListProps> = ({ characters, className }) => {
    return (
       <div className={classNames(styles.container, className)}>
          {
-            characters.length ? characters.map(character =>
+            characters.map(character =>
                <div className={styles.column} key={character.id}>
                   <Card character={character} />
                </div>
 
             )
-               :
-               <div className={styles.message}>There is nothing here</div>
-
          }
       </div>
    );

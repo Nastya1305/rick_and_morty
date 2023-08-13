@@ -30,17 +30,3 @@
       padding: 7px;
    }
 }
-
-.message {
-   margin: 0 auto;
-   color: #61dafb;
-   font-family: Roboto;
-   font-size: 24px;
-   font-style: normal;
-   font-weight: 700;
-   line-height: normal;
-
-   @media (max-width: $media5 + px) {
-      font-size: 18px;
-   }
-}

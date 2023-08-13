@@ -1,3 +1,5 @@
+@import "globalStyles/vars";
+
 .logoImg {
     overflow: hidden;
     img {
@@ -13,9 +15,24 @@
 .container {
     width: 100vw;
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 
 .cards {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+}
+
+.message {
+    margin-top: 100px;
+    text-align: center;
+    color: #61dafb;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @media (max-width: $media5 + px) {
+        font-size: 18px;
+    }
 }

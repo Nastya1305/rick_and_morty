@@ -1,11 +1,13 @@
 import CardList from 'components/CardList';
 import Filters from 'components/Filters';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ICharacter } from 'types/character';
 import styles from 'App.module.scss';
 import Pagination from 'components/Pagination';
 import classNames from 'classnames';
 import { useTypedSelector } from 'hooks/useTypedSelector';
+
+
 
 function App() {
 
@@ -13,21 +15,41 @@ function App() {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [curPage, setCurPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
+  const [error, setError] = useState<string>('');
+  const apiUrl = useRef<URL>(new URL(`https://rickandmortyapi.com/api/character/`));
 
-  useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/?name=${name}&species=${species}&type=${type}&gender=${gender}&status=${status}&page=${curPage}`)
+  async function getCharacters(apiUrl: URL) {
+    fetch(apiUrl)
       .then(res => res.json())
       .then(result => {
         if (result.error) {
-          setCharacters([])
+          setError(result.error);
         } else {
-          //ошибка при изменении параметров фильтрации номер страницы остается прежним - карточки не находятся
           setPageCount(result.info.pages);
           setCharacters(result.results);
+          setError('');
         }
-      })
-  }, [name, species, status, type, gender, curPage]);
+      });
+  }
 
+
+  useEffect(() => {
+    apiUrl.current.searchParams.set('name', name);
+    apiUrl.current.searchParams.set('species', species);
+    apiUrl.current.searchParams.set('type', type);
+    apiUrl.current.searchParams.set('gender', gender);
+    apiUrl.current.searchParams.set('status', status);
+    setCurPage(1);
+    apiUrl.current.searchParams.set('page', '1');
+
+    getCharacters(apiUrl.current);
+  }, [name, species, status, type, gender]);
+
+
+  useEffect(() => {
+    apiUrl.current.searchParams.set('page', String(curPage));
+    getCharacters(apiUrl.current);
+  }, [curPage]);
 
 
   return (
@@ -36,8 +58,23 @@ function App() {
         <img src={require("assets/logo.png")} alt="" />
       </div>
       <Filters />
-      <CardList characters={characters} className={styles.cards} />
-      <Pagination curPage={curPage} pageCount={pageCount} pageCountDisplayed={5} onPageChange={(number) => setCurPage(number)} />
+      {
+        !error ?
+          <>
+            <CardList characters={characters} className={styles.cards} />
+            {
+              pageCount > 1 &&
+              <Pagination
+                curPage={curPage}
+                pageCount={pageCount}
+                pageCountDisplayed={5}
+                onPageChange={(number) => setCurPage(number)}
+              />
+            }
+          </>
+          : <div className={styles.message}>{error}</div>
+      }
+
     </div>
   );
 }
