@@ -43,24 +43,13 @@ const Pagination: FC<PaginationProps> = ({ curPage, pageCount, pageCountDisplaye
 
 
    function changeRange(selectedPage: number): void {
-      if (selectedPage === pageRangeDisplayed.end && selectedPage !== pageCount) {
-         setPageRangeDisplayed((prev) => ({
-            start: prev.start + Math.round(pageCountDisplayed / 2),
-            end: prev.end + Math.round(pageCountDisplayed / 2)
-         }))
-      }
-      if (selectedPage === pageRangeDisplayed.start && selectedPage !== 1) {
-         setPageRangeDisplayed((prev) => ({
-            start: prev.start - Math.round(pageCountDisplayed / 2),
-            end: prev.end - Math.round(pageCountDisplayed / 2)
-         }))
-      } else
-         if (selectedPage === 1) {
-            setPageRangeDisplayed({
-               start: 1,
-               end: pageCountDisplayed
-            })
-         }
+      let start = selectedPage - Math.floor(pageCountDisplayed / 2);
+      let end = selectedPage + Math.floor(pageCountDisplayed / 2);
+
+      setPageRangeDisplayed({
+         start: (start > 1) ? start : 1,
+         end: (end < pageCount) ? end : pageCount
+      })
    }
 
    return (
