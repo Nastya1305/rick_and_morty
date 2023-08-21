@@ -5,13 +5,13 @@ import { ICharacter } from 'types/character';
 import styles from 'App.module.scss';
 import Pagination from 'components/Pagination';
 import classNames from 'classnames';
-import { useTypedSelector } from 'hooks/useTypedSelector';
+import { useTypedSelector } from 'hooks/redux';
 
 
 
 function App() {
 
-  const { name, species, status, type, gender } = useTypedSelector(state => state.filter);
+  const { name, species, status, type, gender } = useTypedSelector(state => state.filterReducer);
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [curPage, setCurPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
