@@ -1,6 +1,16 @@
 
-export type Status = 'Alive' | 'Dead' | 'unknown';
-export type Gender = 'Female' | 'Male' | 'Genderless' | 'unknown';
+
+export interface CharacterState {
+   characters: ICharacter[],
+   info: CharacterStateInfo,
+   isLoading: boolean,
+   error: string
+}
+
+export interface CharacterStateInfo {
+   count: number,
+   pages: number
+}
 
 export interface ICharacter {
    id: number,
@@ -14,3 +24,6 @@ export interface ICharacter {
    image: string,
    episode: string[]
 }
+
+export type Status = 'Alive' | 'Dead' | 'unknown';
+export type Gender = 'Female' | 'Male' | 'Genderless' | 'unknown';

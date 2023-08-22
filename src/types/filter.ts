@@ -5,6 +5,7 @@ export interface FilterState {
     species: string,
     type: string,
     status: Status | '',
-    gender: Gender | ''
+    gender: Gender | '',
+    page: number
 }
 

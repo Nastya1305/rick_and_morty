@@ -8,7 +8,8 @@ const initialState: FilterState = {
     species: '',
     type: '',
     gender: '',
-    status: ''
+    status: '',
+    page: 1
 }
 
 export const filterSlice = createSlice({
@@ -17,18 +18,26 @@ export const filterSlice = createSlice({
     reducers: {
         setName(state, action: PayloadAction<string>) {
             state.name = action.payload;
+            state.page = 1;
         },
         setSpecies(state, action: PayloadAction<string>) {
             state.species = action.payload;
+            state.page = 1;
         },
         setType(state, action: PayloadAction<string>) {
             state.type = action.payload;
+            state.page = 1;
         },
         setGender(state, action: PayloadAction<Gender | 'all'>) {
             state.gender = (action.payload === 'all') ? '' : action.payload;
+            state.page = 1;
         },
         setStatus(state, action: PayloadAction<Status | 'all'>) {
             state.status = (action.payload === 'all') ? '' : action.payload;
+            state.page = 1;
+        },
+        setPage(state, action: PayloadAction<number>) {
+            state.page = action.payload;
         }
     }
 })
